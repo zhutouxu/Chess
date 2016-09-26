@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SceneGame.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SceneStart.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Stone.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ChessAI.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppMacros.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SceneGame.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SceneStart.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Stone.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ChessAI.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\background.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\bche.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\bjiang.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\bkg1.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\bkg2.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\bma.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\bpao.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\bshi.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\bxiang.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\bzu.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\closeVolice.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\difficulty.jpg">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\floor.jpg">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\icon.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\new.jpg">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\openVolice.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\pause.jpg">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\rbing.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\rche.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\regret.jpg">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\rma.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\rpao.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\rshi.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\rshuai.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\rxiang.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\selected.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\start.jpg">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Resources\yingjiemian.png">
+      <Filter>resource</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Resources\floor.wav">
+      <Filter>resource</Filter>
+    </Media>
+  </ItemGroup>
+</Project>
