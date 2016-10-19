@@ -13,6 +13,13 @@ public:
 
 	ChessAI();
 	~ChessAI();
+	int SearchFull(int vlAlpha, int vlBeta, int nDepth);
+	void SearchMain();
+	void ResponseMove();
+	int GetRedValue();
+	int GetBlackValue();
+private:
+
 };
 
 #endif

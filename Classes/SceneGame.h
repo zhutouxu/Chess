@@ -4,9 +4,11 @@
 #include "cocos2d.h"
 #include "SimpleAudioEngine.h"
 #include "Stone.h"
+#include "ChessAI.h"
 
 USING_NS_CC;
 using namespace CocosDenshion;
+
 
 
 //创建一个类
@@ -48,6 +50,9 @@ public:
         _steps->release();
     }
 
+	static SceneGame* GetInstance();
+	static SceneGame* m_SceneGameObj;
+
     static CCScene* scene(bool red);
 
     //自定义init函数
@@ -58,6 +63,9 @@ public:
     //当玩家选中红棋时，玩家持红棋
     //当玩家选中黑棋时，玩家持黑棋
     static SceneGame*  create(bool red);
+	ChessAI m_AI;
+	//定义棋子对象数组(象棋中一共有32颗棋子)
+	Stone* _s[32];
 
     //棋盘的偏移量
     CCPoint _plateOffset;
@@ -82,9 +90,6 @@ public:
 
      //保存每步走的棋子
     CCArray* _steps;
-
-     //定义棋子对象数组(象棋中一共有32颗棋子)
-    Stone* _s[32];
 
     //用于创建精灵显示游戏结果
     CCSprite* sprite;
@@ -123,6 +128,7 @@ public:
 
     //悔棋
     void Back(CCObject*);
+	void StoneBack();
 
     //开始游戏
     void Start(CCObject*);

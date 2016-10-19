@@ -1,19 +1,9 @@
 #include "SceneGame.h"
 
+SceneGame* SceneGame::m_SceneGameObj = nullptr;
+
 SceneGame::SceneGame()
 {
-}
-
-
-CCScene* SceneGame::scene(bool red)
-{
-    CCScene* scene = CCScene::create();
-
-    SceneGame* layer = SceneGame::create(red);
-
-    scene->addChild(layer);
-
-    return scene;
 }
 
 //自定义create函数
@@ -39,6 +29,22 @@ SceneGame* SceneGame::create(bool red)
     }
 
     return pRet;
+}
+
+SceneGame* SceneGame::GetInstance()
+{
+	return m_SceneGameObj;
+}
+
+CCScene* SceneGame::scene(bool red)
+{
+	CCScene* scene = CCScene::create();
+
+	m_SceneGameObj = SceneGame::create(red);
+
+	scene->addChild(m_SceneGameObj);
+
+	return scene;
 }
 
 bool SceneGame::init(bool red)
@@ -416,44 +422,46 @@ CCPoint SceneGame::getStonePos(int x, int y)
 //实现悔棋
 void SceneGame::Back(CCObject*)
 {
-    //当数组中的元素个数为0时
-    //没走棋
-    if(0 == _steps->count())
-    {
-        return;
-    }
-
-    //获取数组中的最后一个元素
-    //获取走棋时的最后一步棋子的信息
-    Step* step = (Step*)_steps->lastObject();
-
-   // 恢复棋子的信息
-    //设置棋子走棋前的位置x坐标
-    _s[step->_moveid]->setX(step->_xFrom);
-
-    //设置棋子走起前的位置y坐标
-    _s[step->_moveid]->setY(step->_yFrom);
-    _s[step->_moveid]->setPosition(getStonePos(step->_xFrom, step->_yFrom));
-
-    //恢复吃掉的棋子
-    if(step->_killid != -1)
-    {
-        //显示吃掉的棋子
-        _s[step->_killid]->setVisible(true);
-
-        //复活吃掉的棋子
-         _s[step->_killid]->setDead(false);
-    }
-
-    //移动了一步棋后
-    //切换移动的棋子的颜色
-    _redTrun = ! _redTrun;
-
-    //删除数组中的最后一个元素
-    //删除走棋时最后一步棋子的信息
-    _steps->removeLastObject();
+	StoneBack();
 }
 
+void SceneGame::StoneBack() {
+	//当数组中的元素个数为0时
+	//没走棋
+	if (0 == _steps->count())
+	{
+		return;
+	}
+
+	//获取数组中的最后一个元素
+	//获取走棋时的最后一步棋子的信息
+	Step* step = (Step*)_steps->lastObject();
+
+	// 恢复棋子的信息
+	//设置棋子走棋前的位置x坐标
+	_s[step->_moveid]->setX(step->_xFrom);
+
+	//设置棋子走起前的位置y坐标
+	_s[step->_moveid]->setY(step->_yFrom);
+	_s[step->_moveid]->setPosition(getStonePos(step->_xFrom, step->_yFrom));
+
+	//恢复吃掉的棋子
+	if (step->_killid != -1)
+	{
+		//显示吃掉的棋子
+		_s[step->_killid]->setVisible(true);
+
+		//复活吃掉的棋子
+		_s[step->_killid]->setDead(false);
+	}
+	//移动了一步棋后
+	//切换移动的棋子的颜色
+	_redTrun = !_redTrun;
+
+	//删除数组中的最后一个元素
+	//删除走棋时最后一步棋子的信息
+	_steps->removeLastObject();
+}
 
  //实现开始
 void SceneGame::Start(CCObject*)
@@ -574,7 +582,7 @@ void SceneGame::moveComplete(CCNode* movestone, void* _killid)
 
 	//该走的棋和玩家颜色不一致就是到了AI走的时候
 	if (_redTrun != _redSide) {
-
+		m_AI.ResponseMove();
 	}
 }
 
@@ -650,6 +658,9 @@ bool SceneGame::canMove(int moveid, int killid, int x, int y)
 //将的走棋规则
 bool SceneGame::canMoveJiang(int moveid, int killid, int x, int y)
 {
+	if (killid < 0 || killid >= 32) {
+		return false;
+	}
    Stone* skill = _s[killid];
 
       //将的走棋规则：
